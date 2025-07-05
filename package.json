@@ -19,7 +19,7 @@
     "anti-raid",
     "tickets"
   ],
-  "author": "Your Name",
+  "author": "Satyendra Usha Vijay",
   "license": "MIT",
   "dependencies": {
     "discord.js": "^14.14.1",

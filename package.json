@@ -1,67 +1,39 @@
 {
   "name": "ultimate-discord-moderation-bot",
-  "version": "2.1.0",
-  "description": "Professional Discord moderation bot with AI-powered protection and advanced features",
-  "main": "index.js",
+  "version": "1.0.0",
+  "description": "Professional Discord Moderation Bot with Advanced Features",
+  "main": "bot.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "prod": "NODE_ENV=production node index.js",
-    "restart": "npm run stop && npm run start",
-    "stop": "pkill -f 'node index.js' || true",
-    "logs": "tail -f logs/bot.log",
-    "health": "node -e \"console.log('Bot health check:', new Date().toISOString())\"",
-    "install-production": "npm ci --only=production",
-    "setup": "mkdir -p bot_data logs backups transcripts exports && chmod +x index.js",
-    "backup": "tar -czf backups/backup-$(date +%Y%m%d_%H%M%S).tar.gz bot_data config.json .env.example",
-    "clean": "rm -rf node_modules && npm install",
-    "update": "git pull origin main && npm install && npm run restart"
+    "start": "node bot.js",
+    "dev": "node bot.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop discord-bot",
+    "pm2:restart": "pm2 restart discord-bot",
+    "pm2:logs": "pm2 logs discord-bot"
   },
   "keywords": [
     "discord",
     "bot",
     "moderation",
-    "automod",
     "anti-spam",
     "anti-raid",
-    "tickets",
-    "dashboard",
-    "plesk",
-    "inos"
+    "tickets"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Your Name",
   "license": "MIT",
-  "engines": {
-    "node": ">=16.9.0",
-    "npm": ">=7.0.0"
-  },
   "dependencies": {
-    "discord.js": "^14.14.1"
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "pm2": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=16.11.0",
+    "npm": ">=8.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/ultimate-discord-bot.git"
-  },
-  "bugs": {
-    "url": "https://github.com/yourusername/ultimate-discord-bot/issues"
-  },
-  "homepage": "https://github.com/yourusername/ultimate-discord-bot#readme",
-  "os": [
-    "linux",
-    "win32",
-    "darwin"
-  ],
-  "cpu": [
-    "x64",
-    "arm64"
-  ],
-  "preferGlobal": false,
-  "private": true,
-  "config": {
-    "port": 3000,
-    "env": "production"
+    "url": "https://github.com/yourusername/discord-moderation-bot.git"
   }
 }

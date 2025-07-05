@@ -1,0 +1,289 @@
+{
+  "_comment": "config.json - Main bot configuration",
+  "bot": {
+    "name": "Ultimate Moderation Bot",
+    "version": "2.0.0",
+    "description": "Professional Discord moderation with AI-powered protection",
+    "author": "Your Name",
+    "website": "https://github.com/yourusername/ultimate-discord-bot"
+  },
+  "defaults": {
+    "automod": {
+      "antiSpam": {
+        "enabled": false,
+        "heatLevel": 3,
+        "cooldownTime": 10000,
+        "messageSimilarity": 0.8,
+        "duplicateThreshold": 3,
+        "mentionLimit": 5,
+        "emojiLimit": 10,
+        "characterLimit": 2000,
+        "newlineLimit": 10,
+        "rapidMessageThreshold": 2000,
+        "exemptRoles": []
+      },
+      "contentFilter": {
+        "enabled": false,
+        "nsfw": false,
+        "badWords": [
+          "example1",
+          "example2"
+        ],
+        "links": {
+          "enabled": false,
+          "whitelist": [
+            "youtube.com",
+            "discord.com",
+            "github.com"
+          ],
+          "blacklist": [
+            "suspicious-site.com",
+            "spam-domain.net"
+          ],
+          "roleExceptions": []
+        },
+        "invites": {
+          "enabled": false,
+          "roleExceptions": [],
+          "allowOwnServer": true
+        }
+      },
+      "antiRaid": {
+        "enabled": false,
+        "joinLimit": 5,
+        "timeWindow": 30000,
+        "panicMode": false,
+        "joinGate": {
+          "enabled": false,
+          "minAccountAge": 604800000,
+          "requireAvatar": false,
+          "requirePhone": false
+        },
+        "autoActions": {
+          "enabled": true,
+          "kickNewAccounts": false,
+          "tempBanSuspicious": true,
+          "notifyStaff": true
+        }
+      },
+      "antiNuke": {
+        "enabled": false,
+        "massActionLimit": 5,
+        "timeWindow": 60000,
+        "protectedRoles": [],
+        "protectedChannels": [],
+        "autoQuarantine": true
+      },
+      "autoDelete": {
+        "enabled": false,
+        "timer": 5,
+        "channels": [],
+        "keywordTriggers": [],
+        "fileTypes": [
+          ".exe",
+          ".bat",
+          ".scr"
+        ],
+        "messageTypes": {
+          "images": false,
+          "videos": false,
+          "links": false,
+          "embeds": false,
+          "attachments": false
+        }
+      },
+      "slowMode": {
+        "enabled": false,
+        "autoEnable": false,
+        "threshold": 10,
+        "duration": 30,
+        "exemptRoles": []
+      }
+    },
+    "tickets": {
+      "enabled": false,
+      "categories": [
+        {
+          "name": "general",
+          "displayName": "General Support",
+          "emoji": "💬",
+          "description": "General help and questions"
+        },
+        {
+          "name": "bug",
+          "displayName": "Bug Report",
+          "emoji": "🐛",
+          "description": "Report bugs and issues"
+        },
+        {
+          "name": "feature",
+          "displayName": "Feature Request",
+          "emoji": "✨",
+          "description": "Suggest new features"
+        },
+        {
+          "name": "appeal",
+          "displayName": "Appeal",
+          "emoji": "⚖️",
+          "description": "Appeal moderation actions"
+        }
+      ],
+      "autoClose": 24,
+      "staffRole": null,
+      "logChannel": null,
+      "transcripts": true,
+      "maxActiveTickets": 5,
+      "cooldownMinutes": 30
+    },
+    "logging": {
+      "messageLog": {
+        "enabled": false,
+        "channel": null,
+        "events": ["messageDelete", "messageUpdate", "bulkDelete"]
+      },
+      "modLog": {
+        "enabled": false,
+        "channel": null,
+        "events": ["warn", "mute", "kick", "ban", "unban"]
+      },
+      "joinLeave": {
+        "enabled": false,
+        "channel": null,
+        "events": ["guildMemberAdd", "guildMemberRemove"]
+      },
+      "voiceLog": {
+        "enabled": false,
+        "channel": null,
+        "events": ["voiceStateUpdate"]
+      },
+      "roleLog": {
+        "enabled": false,
+        "channel": null,
+        "events": ["roleCreate", "roleDelete", "roleUpdate"]
+      },
+      "channelLog": {
+        "enabled": false,
+        "channel": null,
+        "events": ["channelCreate", "channelDelete", "channelUpdate"]
+      }
+    },
+    "punishments": {
+      "progressive": false,
+      "warnLimit": 3,
+      "muteRole": null,
+      "appeals": false,
+      "autoEscalation": {
+        "enabled": false,
+        "levels": [
+          { "warnings": 1, "action": "none" },
+          { "warnings": 2, "action": "mute", "duration": 3600000 },
+          { "warnings": 3, "action": "tempban", "duration": 86400000 },
+          { "warnings": 4, "action": "ban" }
+        ]
+      }
+    },
+    "security": {
+      "maxWarningsPerDay": 10,
+      "maxMutesPerDay": 5,
+      "maxBansPerDay": 3,
+      "requireStaffConfirmation": false,
+      "logAllActions": true
+    }
+  },
+  "features": {
+    "antiSpam": true,
+    "antiRaid": true,
+    "contentFilter": true,
+    "antiNuke": true,
+    "tickets": true,
+    "logging": true,
+    "autoBackup": true,
+    "analytics": true,
+    "voiceModeration": false,
+    "autoModeration": true
+  },
+  "rateLimits": {
+    "commands": {
+      "user": 5,
+      "global": 100,
+      "window": 60000
+    },
+    "actions": {
+      "warns": 3,
+      "mutes": 5,
+      "bans": 2,
+      "window": 300000
+    },
+    "messages": {
+      "perUser": 10,
+      "perChannel": 50,
+      "window": 60000
+    }
+  },
+  "colors": {
+    "success": 4766515,
+    "warning": 16744192,
+    "error": 15993414,
+    "info": 2196243,
+    "primary": 10233776,
+    "secondary": 6316668,
+    "danger": 15035170
+  },
+  "emojis": {
+    "success": "✅",
+    "warning": "⚠️",
+    "error": "❌",
+    "info": "ℹ️",
+    "loading": "🔄",
+    "shield": "🛡️",
+    "ticket": "🎫",
+    "stats": "📊",
+    "settings": "⚙️",
+    "lock": "🔒",
+    "unlock": "🔓",
+    "ban": "🔨",
+    "kick": "👢",
+    "mute": "🔇",
+    "warn": "⚠️"
+  },
+  "messages": {
+    "automod": {
+      "spamDetected": "Slow down! Anti-spam protection activated.",
+      "raidDetected": "🚨 RAID DETECTED - Server protection engaged",
+      "contentFiltered": "Your message was filtered by our content protection system.",
+      "linkBlocked": "Links are not allowed in this channel.",
+      "inviteBlocked": "Discord invites are not allowed.",
+      "slowModeEnabled": "🐌 Slow mode automatically enabled due to high activity.",
+      "restrictionViolation": "This message type is not allowed in this channel."
+    },
+    "tickets": {
+      "created": "Support ticket created successfully!",
+      "closed": "Ticket has been closed.",
+      "claimed": "Ticket claimed by staff member.",
+      "autoClose": "This ticket will be automatically closed in {time} if there's no activity."
+    },
+    "moderation": {
+      "userWarned": "User has been warned.",
+      "userMuted": "User has been muted.",
+      "userKicked": "User has been kicked.",
+      "userBanned": "User has been banned.",
+      "actionLogged": "Moderation action has been logged."
+    }
+  },
+  "channels": {
+    "adminControl": "admin-control",
+    "defaultLogChannels": {
+      "modLog": "mod-logs",
+      "messageLog": "message-logs",
+      "joinLeave": "member-logs",
+      "voice": "voice-logs"
+    }
+  },
+  "database": {
+    "type": "json",
+    "path": "./bot_data",
+    "backupPath": "./backups",
+    "encryptionEnabled": false,
+    "compressionEnabled": true
+  }
+}

@@ -1,39 +1,30 @@
 {
-  "name": "ultimate-discord-moderation-bot",
-  "version": "1.0.0",
-  "description": "Professional Discord Moderation Bot with Advanced Features",
+  "name": "discord-moderation-bot",
+  "version": "2.0.0",
+  "description": "Advanced Discord Moderation Bot",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-    "dev": "node bot.js",
+    "dev": "nodemon bot.js",
     "pm2:start": "pm2 start ecosystem.config.js",
-    "pm2:stop": "pm2 stop discord-bot",
     "pm2:restart": "pm2 restart discord-bot",
-    "pm2:logs": "pm2 logs discord-bot"
+    "pm2:stop": "pm2 stop discord-bot",
+    "pm2:logs": "pm2 logs discord-bot",
+    "backup": "node scripts/backup.js",
+    "restore": "node scripts/restore.js"
   },
-  "keywords": [
-    "discord",
-    "bot",
-    "moderation",
-    "anti-spam",
-    "anti-raid",
-    "tickets"
-  ],
-  "author": "Satyendra Usha Vijay",
-  "license": "MIT",
   "dependencies": {
     "discord.js": "^14.14.1",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1",
+    "node-cron": "^3.0.3",
+    "compression": "^1.7.4"
   },
   "devDependencies": {
-    "pm2": "^5.3.0"
+    "nodemon": "^3.0.2"
   },
   "engines": {
-    "node": ">=16.11.0",
-    "npm": ">=8.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yourusername/discord-moderation-bot.git"
+    "node": ">=18.0.0"
   }
 }
